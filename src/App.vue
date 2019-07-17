@@ -1,28 +1,49 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    hello
+    <SideBar :EmployeeDetails="EmployeeData"/>
+    <Avatar />
+    <Name />
+    <RangeSlider />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// components
+import SideBar from '@/components/SideBar.vue';
+import Avatar from '@/components/Avatar.vue';
+import Name from '@/components/Name.vue';
+import RangeSlider from '@/components/RangeSlider.vue';
+import InfoBox from '@/components/InfoBox.vue';
+
+// helpers
+import axios from 'axios';
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+    name: 'app',
+    data() {
+        return {
+            EmployeeData: {},
+            Avatar,
+            Name,
+            RangeSlider,
+            InfoBox,
+        };
+    },
+    components: {
+        SideBar,
+    },
+    created() {
+        axios
+            .get(`/data/EmployeeData.json`)
+            .then(response => {
+                // JSON responses are automatically parsed.
+                this.EmployeeData = response.data;
+            })
+            .catch(e => {
+                this.errors.push(e);
+            });
+    },
+};
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
