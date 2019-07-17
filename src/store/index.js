@@ -23,9 +23,11 @@ export default new Vuex.Store({
     nameClick: function(store, payload) {
       store.commit('nameClick', payload);
     },
+    dataSlide: function(store, payload) {
+      store.commit('dataSlide', payload);
+    },
   },
-  // Basically `computed` values shared across components.
-  getters: {},
+
   mutations: {
     updateEmployeeData(state, employeeData) {
       state.employeeData = employeeData;
@@ -35,6 +37,11 @@ export default new Vuex.Store({
     },
     nameClick: function(state, payload) {
       state.current = payload.index;
+    },
+    dataSlide: function(state, payload) {
+      // eslint-disable-next-line no-console
+
+      state.employeeData.employees[state.current].popularity = payload;
     },
   },
 });

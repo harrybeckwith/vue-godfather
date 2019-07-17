@@ -1,12 +1,14 @@
 <template>
-    <h2 v-if="!loading"> {{employeeData.employees[current].name}} </h2>
+    <h2 class="title"> {{employeeData.employees[current].name}}</h2>
 </template>
 
 <script>
-import Vuex from 'vuex';
+import { mapState } from 'vuex';
 export default {
     name: 'Name',
-    computed: Vuex.mapState(['employeeData', 'current', 'loading']),
+    computed: {
+        ...mapState(['employeeData', 'current']),
+    },
 };
 </script>
 

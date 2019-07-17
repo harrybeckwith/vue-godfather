@@ -19,6 +19,7 @@ export default {
 
 <style scoped lang="scss">
 .sidebar {
+    width: 30%;
     &__logo {
         width: 150px;
     }

@@ -1,12 +1,17 @@
 <template>
   <div>
 
-    <div v-if="!loading">
+    <div v-if="!loading" class="container">
       <SideBar />
-      <Avatar/>
-      <Name />
-      <RangeSlider />
-      <InfoBox/>
+      <div class="main">
+        <Avatar/>
+        <div>
+        <Name />
+        <RangeSlider />
+        <InfoBox/>
+            </div>
+      </div>
+     
     </div>
 
 
@@ -38,4 +43,26 @@ export default {
     },
 };
 </script>
+
+<style scoped lang="scss">
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main {
+    width: 70%;
+    display: flex;
+}
+
+img {
+    max-width: 100%;
+}
+
+.title {
+}
+</style>
 
