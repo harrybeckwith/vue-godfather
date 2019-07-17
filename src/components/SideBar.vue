@@ -2,7 +2,7 @@
   <div class="sidebar">
     <img src="@/assets/img/the-godfather.svg" alt="the godfather logo" class="sidebar__logo"/>
 
-    <ListItem :employeeData="EmployeeDetails"/>
+    <ListItem/>
 
   </div>
 </template>
@@ -13,12 +13,6 @@ export default {
     name: 'SideBar',
     components: {
         ListItem,
-    },
-    props: {
-        EmployeeDetails: {
-            type: Object,
-            required: true,
-        },
     },
 };
 </script>

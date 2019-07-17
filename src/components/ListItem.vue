@@ -1,19 +1,9 @@
 <template>
   <ul>
-   
-
-    <li v-for="(item, index) in employeeData.employees" :key="index" @click="activateLink(index)">
+    <li v-for="(item, index) in employeeData.employees" :key="index" @click="nameClick(index)">
         <h1>
           {{item.name}}
         </h1>
-        <p>
-       
-        </p>
-      </li>
-
-      <li>
-          {{ current }}
-
       </li>
   </ul>
 </template>
@@ -22,26 +12,11 @@
 import Vuex from 'vuex';
 export default {
     name: 'ListItem',
-    data: function() {
-        return {
-            links: [],
-        };
-    },
     methods: {
-        getLinks: function() {
-            this.links = this.$store.state.links;
-        },
-
-        activateLink: function(index) {
-            // this.$store.dispatch('activateLink', { index });
-            this.$store.commit('activateLink', { index });
+        nameClick: function(index) {
+            this.$store.commit('nameClick', { index });
         },
     },
     computed: Vuex.mapState(['employeeData', 'current']),
-
-    created: function() {
-        this.getLinks();
-        this.$store.dispatch('loadData'); // dispatch loading
-    },
 };
 </script>

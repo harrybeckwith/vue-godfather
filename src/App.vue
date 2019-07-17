@@ -1,7 +1,7 @@
 <template>
   <div>
     hello
-    <SideBar :EmployeeDetails="EmployeeData"/>
+    <SideBar />
     <Avatar />
     <Name />
     <RangeSlider />
@@ -17,7 +17,6 @@ import RangeSlider from '@/components/RangeSlider.vue';
 import InfoBox from '@/components/InfoBox.vue';
 
 // helpers
-import axios from 'axios';
 
 export default {
     name: 'app',
@@ -34,15 +33,7 @@ export default {
         SideBar,
     },
     created() {
-        axios
-            .get(`/data/EmployeeData.json`)
-            .then(response => {
-                // JSON responses are automatically parsed.
-                this.EmployeeData = response.data;
-            })
-            .catch(e => {
-                this.errors.push(e);
-            });
+        this.$store.dispatch('loadData'); // dispatch loading
     },
 };
 </script>
