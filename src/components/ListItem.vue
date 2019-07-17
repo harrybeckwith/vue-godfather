@@ -1,9 +1,14 @@
 <template>
   <ul>
-    <li v-for="(item, index) in employeeData.employees" :key="index" @click="nameClick(index)">
-        <h1 :style="caclFontSize(index)">
+    <li 
+    v-for="(item, index) in employeeData.employees" 
+    :key="index" 
+    @click="nameClick(index)"
+      class="list-item"
+  >
+        <h3 :class="{'list-item__active':selected == index}" class ="title" :style="caclFontSize(index)">
           {{item.name}} 
-        </h1>
+        </h3>
       </li>
   </ul>
 </template>
@@ -12,13 +17,18 @@
 import { mapState } from 'vuex';
 export default {
     name: 'ListItem',
+    data() {
+        return {
+            selected: 0,
+        };
+    },
     computed: {
         ...mapState(['employeeData', 'current']),
     },
     methods: {
         caclFontSize(index) {
             let popularFontSize =
-                4 * this.employeeData.employees[index].popularity;
+                8 * this.employeeData.employees[index].popularity;
 
             return {
                 'font-size': `${popularFontSize}px`,
@@ -26,7 +36,19 @@ export default {
         },
         nameClick: function(index) {
             this.$store.commit('nameClick', { index });
+            this.selected = index;
         },
     },
 };
 </script>
+
+<style lang="scss" scoped>
+.list-item {
+    list-style: none;
+    cursor: pointer;
+    &__active {
+        background-color: #404145;
+        color: #64c1e3;
+    }
+}
+</style>

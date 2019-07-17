@@ -19,7 +19,11 @@ export default {
 
 <style scoped lang="scss">
 .sidebar {
-    width: 30%;
+    width: 40%;
+    text-align: center;
+    margin-right: 20px;
+    text-align: center;
+    background: #00000040;
     &__logo {
         width: 150px;
     }

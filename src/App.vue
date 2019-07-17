@@ -1,7 +1,8 @@
 <template>
-  <div>
-
-    <div v-if="!loading" class="container">
+  <div class ="app">
+    <div class="header"></div>
+    <div class="bg"></div>
+      <div v-if="!loading" class="container">
       <SideBar />
       <div class="main">
         <Avatar/>
@@ -11,9 +12,7 @@
         <InfoBox/>
             </div>
       </div>
-     
     </div>
-
 
   </div>
 </template>
@@ -44,17 +43,40 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style  lang="scss">
+.header {
+    height: 40vh;
+    background-image: url('/images/Godfather header.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 0;
+}
+.bg {
+    height: 60vh;
+    background-color: #2e2e35;
+    top: 40vh;
+}
+
+.header,
+.bg {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
 .container {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 100px;
 }
 
 .main {
-    width: 70%;
+    width: 60%;
     display: flex;
 }
 
@@ -63,6 +85,11 @@ img {
 }
 
 .title {
+    color: #fff;
+}
+ul {
+    margin: 0;
+    padding: 0;
 }
 </style>
 

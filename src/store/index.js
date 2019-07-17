@@ -40,7 +40,6 @@ export default new Vuex.Store({
     },
     dataSlide: function(state, payload) {
       // eslint-disable-next-line no-console
-
       state.employeeData.employees[state.current].popularity = payload;
     },
   },
