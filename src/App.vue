@@ -1,10 +1,15 @@
 <template>
   <div>
-    hello
-    <SideBar />
-    <Avatar />
-    <Name />
-    <RangeSlider />
+
+    <div v-if="!loading">
+      <SideBar />
+      <Avatar/>
+      <Name />
+      <RangeSlider />
+      <InfoBox/>
+    </div>
+
+
   </div>
 </template>
 
@@ -17,21 +22,17 @@ import RangeSlider from '@/components/RangeSlider.vue';
 import InfoBox from '@/components/InfoBox.vue';
 
 // helpers
-
+import Vuex from 'vuex';
 export default {
     name: 'app',
-    data() {
-        return {
-            EmployeeData: {},
-            Avatar,
-            Name,
-            RangeSlider,
-            InfoBox,
-        };
-    },
     components: {
         SideBar,
+        Avatar,
+        Name,
+        RangeSlider,
+        InfoBox,
     },
+    computed: Vuex.mapState(['employeeData', 'current', 'loading']),
     created() {
         this.$store.dispatch('loadData'); // dispatch loading
     },

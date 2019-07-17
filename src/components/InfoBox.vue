@@ -1,12 +1,18 @@
 <template>
-    <div>
-        info box
-        </div>
+
+<div class="info-box">
+    <p>
+        {{employeeData.employees[current].biography}}
+    </p>
+</div>
+ 
 </template>
 
 <script>
+import Vuex from 'vuex';
 export default {
-    name: 'infoBox',
+    name: 'InfoBox',
+    computed: Vuex.mapState(['employeeData', 'current']),
 };
 </script>
 

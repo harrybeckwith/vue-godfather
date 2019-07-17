@@ -9,6 +9,7 @@ export default new Vuex.Store({
   state: {
     current: 0,
     employeeData: [],
+    loading: true,
   },
 
   actions: {
@@ -16,6 +17,7 @@ export default new Vuex.Store({
     loadData({ commit }) {
       axios.get('/data/EmployeeData.json').then(response => {
         commit('updateEmployeeData', response.data);
+        commit('changeLoadingState', false);
       });
     },
     nameClick: function(store, payload) {
@@ -27,6 +29,9 @@ export default new Vuex.Store({
   mutations: {
     updateEmployeeData(state, employeeData) {
       state.employeeData = employeeData;
+    },
+    changeLoadingState(state, loading) {
+      state.loading = loading;
     },
     nameClick: function(state, payload) {
       state.current = payload.index;
