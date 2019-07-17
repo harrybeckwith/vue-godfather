@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar">
     <div class="sidebar__inside">
-      <img src="@/assets/img/the-godfather.svg" alt="the godfather logo" class="sidebar__logo"/>
+      <img src="/images/the-godfather.svg" alt="the godfather logo" class="sidebar__logo"/>
       <ListItem/>
     </div>
    </div>
