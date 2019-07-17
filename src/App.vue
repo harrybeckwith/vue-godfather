@@ -60,24 +60,19 @@ export default {
 .header,
 .bg {
     position: absolute;
-
     left: 0;
     right: 0;
     z-index: -1;
 }
 .container {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-    padding-top: 100px;
 }
 
 .main {
     width: 60%;
     display: flex;
+    align-self: center;
 }
 
 img {
