@@ -43,6 +43,7 @@ export default {
 </script>
 
 <style  lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
 .app {
     font-family: 'Roboto', sans-serif;
 }
@@ -102,10 +103,15 @@ img {
 
 .title {
     color: #fff;
+    font-weight: 300;
 }
 ul {
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-weight: 300;
 }
 </style>
 

@@ -1,6 +1,6 @@
 <template>
 <div class="info-box">
-    <h2>Biography</h2>
+    <h3>Biography</h3>
     <p>
         {{employeeData.employees[current].biography}}
     </p>
