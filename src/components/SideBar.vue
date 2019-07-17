@@ -19,13 +19,18 @@ export default {
 
 <style scoped lang="scss">
 .sidebar {
-    width: 30%;
+    width: 100%;
     text-align: center;
     margin-right: 20px;
     text-align: center;
     background: #00000040;
-    height: 100vh;
+
     margin-top: -8px;
+
+    @media (min-width: 768px) {
+        width: 30%;
+        height: 100vh;
+    }
 
     &__inside {
         padding-top: 100px;

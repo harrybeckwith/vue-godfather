@@ -20,7 +20,12 @@ export default {
     color: #fff;
     background-color: #1a1d23;
     padding: 15px;
-    border-radius: 15px;
-    max-width: 600px;
+    margin-top: 50px;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+        border-radius: 15px;
+        max-width: 600px;
+    }
 }
 </style>

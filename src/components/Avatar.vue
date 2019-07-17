@@ -1,5 +1,7 @@
 <template>
-    <img class="avatar" :src="`images/profile-pics/${employeeData.employees[current].image}`"/>
+    <img 
+    class="avatar" 
+    :src="`images/profile-pics/${employeeData.employees[current].image}`"/>
 </template>
 
 <script>

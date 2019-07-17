@@ -13,7 +13,6 @@
             </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -44,17 +43,25 @@ export default {
 </script>
 
 <style  lang="scss">
+.app {
+    font-family: 'Roboto', sans-serif;
+}
 .header {
-    height: 40vh;
     background-image: url('/images/Godfather header.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     top: 0;
+    height: 35vh;
 }
 .bg {
-    height: 60vh;
+    height: 65vh;
     background-color: #2e2e35;
-    top: 40vh;
+    top: 35vh;
+    bottom: 0;
+
+    @media (min-width: 768px) {
+        bottom: auto;
+    }
 }
 
 .header,
@@ -67,12 +74,26 @@ export default {
 .container {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
 }
 
 .main {
-    width: 60%;
-    display: flex;
-    align-self: center;
+    width: 100%;
+
+    text-align: center;
+
+    @media (min-width: 768px) {
+        display: flex;
+        align-self: center;
+
+        justify-content: center;
+        width: 60%;
+        margin-top: 150px;
+        text-align: left;
+    }
 }
 
 img {

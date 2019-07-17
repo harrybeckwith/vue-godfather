@@ -6,7 +6,10 @@
     @click="nameClick(index)"
       class="list-item"
   >
-        <h3 :class="{'list-item__active':selected == index}" class ="title" :style="caclFontSize(index)">
+        <h3 
+        :class="{'list-item__active':selected == index}"
+         class="title" 
+         :style="caclFontSize(index)">
           {{item.name}} 
         </h3>
       </li>
@@ -26,6 +29,7 @@ export default {
         ...mapState(['employeeData', 'current']),
     },
     methods: {
+        // caclulate font from data
         caclFontSize(index) {
             let popularFontSize =
                 8 * this.employeeData.employees[index].popularity;
@@ -35,7 +39,9 @@ export default {
             };
         },
         nameClick: function(index) {
+            // get the index of clicked name
             this.$store.commit('nameClick', { index });
+            // update for active class
             this.selected = index;
         },
     },
